@@ -50,51 +50,48 @@ function App() {
   };
 
   return (
-    (document.title = "QR Code Generator"),
-    (
-      <div className="container">
-        {/* App Title */}
-        <h1>🌟 Welcome to the QR Code Generator App! 📱</h1>
+    <div className="container">
+      {/* App Title */}
+      <h1>🌟 Welcome to the QR Code Generator App! 📱</h1>
 
-        {/* Input field */}
-        <input
-          type="text"
-          placeholder="Type URL here"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          className={value ? "" : "input-blink"}
-        />
+      {/* Input field */}
+      <input
+        type="text"
+        placeholder="Type URL here"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className={value ? "" : "input-blink"}
+      />
 
-        {/* Generate QR Code button */}
-        <button onClick={generateQrCodeHandler}>Generate QR Code</button>
+      {/* Generate QR Code button */}
+      <button onClick={generateQrCodeHandler}>Generate QR Code</button>
 
-        {/* Display QR Code if visible */}
-        {qrVisible && (
-          <div className="qr-code" ref={qrCodeRef}>
-            <QRCode size={256} value={value} />
-          </div>
-        )}
+      {/* Display QR Code if visible */}
+      {qrVisible && (
+        <div className="qr-code" ref={qrCodeRef}>
+          <QRCode size={256} value={value} />
+        </div>
+      )}
 
-        {/* Clear button */}
-        <button
-          onClick={() => {
-            setQrVisible(false);
-            setValue("");
-          }}
-        >
-          Clear
-        </button>
+      {/* Clear button */}
+      <button
+        onClick={() => {
+          setQrVisible(false);
+          setValue("");
+        }}
+      >
+        Clear
+      </button>
 
-        {/* Copy QR Code as Image button */}
-        <button onClick={copyQrCodeImage}>Copy QR Code as Image</button>
+      {/* Copy QR Code as Image button */}
+      <button onClick={copyQrCodeImage}>Copy QR Code as Image</button>
 
-        {/* Download QR Code button */}
-        <button onClick={downloadQrCode}>Download QR Code</button>
+      {/* Download QR Code button */}
+      <button onClick={downloadQrCode}>Download QR Code</button>
 
-        {/* Toast container for displaying notifications */}
-        <ToastContainer />
-      </div>
-    )
+      {/* Toast container for displaying notifications */}
+      <ToastContainer />
+    </div>
   );
 }
 

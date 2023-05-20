@@ -14,18 +14,10 @@
 h1 {
   font-size: 2rem;
   margin-bottom: 20px;
+  text-align: center;
 }
 
-input {
-  width: 20%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  width: 20%;
+input, button {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -35,8 +27,20 @@ button {
   cursor: pointer;
 }
 
+.input-filled {
+  color: black;
+  background-color: transparent;
+}
+
+input {
+  width: 60%;
+}
+
+button {
+  width: 60%;
+}
+
 .qr-code {
-  width: 20%;
   padding: 10px;
   margin: 10px 0;
   border-radius: 4px;
@@ -56,4 +60,16 @@ button {
 
 .input-blink {
   animation: blink 1s infinite;
+}
+
+@media (min-width: 768px) {
+  input, button {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  input, button {
+    width: 30%;
+  }
 }

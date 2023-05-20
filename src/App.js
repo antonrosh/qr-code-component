@@ -1,6 +1,6 @@
 import "./App.css";
 import QRCode from "react-qr-code";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import html2canvas from "html2canvas";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +9,7 @@ function App() {
   // State variables
   const [value, setValue] = useState("");
   const [qrVisible, setQrVisible] = useState(false);
+  const [qrCodeSize, setQrCodeSize] = useState(256); // QR code size state
   const qrCodeRef = useRef(null);
 
   // Event handler for generating QR Code
@@ -49,6 +50,30 @@ function App() {
     });
   };
 
+  // Update QR code size based on window width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setQrCodeSize(200);
+      } else if (window.innerWidth > 768 && window.innerWidth <= 1024) {
+        setQrCodeSize(256);
+      } else {
+        setQrCodeSize(300);
+      }
+    };
+
+    // Initial size set
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="container">
       {/* App Title */}
@@ -60,7 +85,7 @@ function App() {
         placeholder="Type URL here"
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className={value ? "" : "input-blink"}
+        className={value ? "input-filled" : "input-blink"}
       />
 
       {/* Generate QR Code button */}
@@ -69,7 +94,7 @@ function App() {
       {/* Display QR Code if visible */}
       {qrVisible && (
         <div className="qr-code" ref={qrCodeRef}>
-          <QRCode size={256} value={value} />
+          <QRCode size={qrCodeSize} value={value} /> {/* Use dynamic size */}
         </div>
       )}
 

@@ -6,8 +6,9 @@ This project is a simple and efficient QR Code Generator built with React.js.
 
 1. [Features](#features)
 2. [Technologies Used](#technologies-used)
-3. [Getting Started](#getting-started)
-4. [Contact](#contact)
+3. [Live Demo](#live-demo)
+4. [Getting Started](#getting-started)
+5. [Contact](#contact)
 
 ## Features
 
@@ -24,6 +25,10 @@ This project is a simple and efficient QR Code Generator built with React.js.
 - HTML2Canvas
 - react-qr-code
 - react-toastify
+
+## Live Demo
+
+Access the live application [here](https://antonrosh.dev/qr-code-component/).
 
 ## Getting Started
 

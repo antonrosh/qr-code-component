@@ -1,5 +1,11 @@
-*{
-  box-sizing: border-box;
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .container {
@@ -11,13 +17,13 @@
   justify-content: center;
 }
 
-h1 {
+.container h1 {
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
 }
 
-input, button {
+.container input, .container button {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -27,20 +33,20 @@ input, button {
   cursor: pointer;
 }
 
-.input-filled {
+.container .input-filled {
   color: black;
   background-color: transparent;
 }
 
-input {
+.container input {
   width: 60%;
 }
 
-button {
+.container button {
   width: 60%;
 }
 
-.qr-code {
+.container .qr-code {
   padding: 10px;
   margin: 10px 0;
   border-radius: 4px;
@@ -58,18 +64,18 @@ button {
   }
 }
 
-.input-blink {
+.container .input-blink {
   animation: blink 1s infinite;
 }
 
 @media (min-width: 768px) {
-  input, button {
+  .container input, .container button {
     width: 40%;
   }
 }
 
 @media (min-width: 1024px) {
-  input, button {
+  .container input, .container button {
     width: 30%;
   }
 }

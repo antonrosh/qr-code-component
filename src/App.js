@@ -11,6 +11,7 @@ function App() {
   const [qrVisible, setQrVisible] = useState(false);
   const [qrCodeSize, setQrCodeSize] = useState(256); // QR code size state
   const qrCodeRef = useRef(null);
+  const [theme, setTheme] = useState("light");
 
   // Event handler for generating QR Code
   const generateQrCodeHandler = () => {
@@ -74,8 +75,13 @@ function App() {
     };
   }, []);
 
+  // Apply selected theme
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   return (
-    <div className="container">
+    <div className={`container ${theme}`}>
       {/* App Title */}
       <h1>🌟 Welcome to the QR Code Generator App! 📱</h1>
 
@@ -113,6 +119,11 @@ function App() {
 
       {/* Download QR Code button */}
       <button onClick={downloadQrCode}>Download QR Code</button>
+
+      {/* Toggle Theme button */}
+      <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+        Switch Theme
+      </button>
 
       {/* Toast container for displaying notifications */}
       <ToastContainer />

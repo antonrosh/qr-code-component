@@ -33,8 +33,23 @@ body.dark {
   cursor: pointer;
 }
 
+body.light .container input, body.light .container button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+body.dark .container input, body.dark .container button {
+  background-color: #4CAF50;
+  color: black;
+}
+
 .container .input-filled {
   color: black;
+  background-color: transparent;
+}
+
+body.dark .container .input-filled {
+  color: white;
   background-color: transparent;
 }
 

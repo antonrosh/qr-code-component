@@ -37,7 +37,7 @@ Access the live application [here](https://antonrosh.dev/qr-code-component/).
 2. Clone this repository.
 
    ```
-   git clone https://github.com/<your-github-username>/qr-code-component.git
+   git clone https://github.com/antonrosh/qr-code-component.git
    ```
 
 3. Navigate to the directory of the cloned repository.

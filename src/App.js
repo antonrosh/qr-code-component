@@ -29,9 +29,11 @@ function App() {
       return;
     }
     html2canvas(qrCodeRef.current).then((canvas) => {
-      const qrCodeImage = canvas.toDataURL("image/png");
-      navigator.clipboard.writeText(qrCodeImage).then(() => {
-        toast.success("QR Code image copied to clipboard.");
+      canvas.toBlob((blob) => {
+        const item = new ClipboardItem({ "image/png": blob });
+        navigator.clipboard.write([item]).then(() => {
+          toast.success("QR Code image copied to clipboard.");
+        });
       });
     });
   };
